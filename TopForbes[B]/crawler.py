@@ -59,7 +59,7 @@ def find_billionaires(url):
     return billionaires
 
 
-if __name__ == "__main__":
+def start_crawling():
     forbes_url = 'https://www.forbes.com/billionaires'
     forbes_billionaires = find_billionaires(forbes_url)
     forbes_billionaires_info = extract_billionaire_info(forbes_billionaires)

@@ -1,19 +1,8 @@
-import psycopg2
-from config import config_database
+import crawler
+import functions
 
-
-def get_connection():
-    connection = None
-    try:
-        params = config_database()
-        print('Connecting to the PostgreSQL database')
-        connection = psycopg2.connect(**params)
-    except psycopg2.DatabaseError as e:
-        print(e)
-    return connection
-
-
-def close_connection(connection):
-    if connection:
-        connection.close()
-        print('Database connection closed')
+if __name__ == "__main__":
+    crawler.start_crawling()
+    print(f"Top 10 youngest persons: {functions.get_youngest(10)}")
+    print(f"Citizenship: {functions.get_citizenship('United States')}")
+    print(f"Top 10 highest score: {functions.get_highest_score(10)}")
